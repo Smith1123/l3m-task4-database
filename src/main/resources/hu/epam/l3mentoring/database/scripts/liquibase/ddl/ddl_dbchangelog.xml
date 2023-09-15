@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet id="create-student-table" author="zsolt.feher">
+        <createTable tableName="student">
+            <column name="id" type="int" />
+            <column name="name" type="varchar(50)" />
+            <column name="surname" type="varchar(20)"/>
+            <column name="date_of_birth" type="date"/>
+            <column name="phone_number" type="varchar" />
+            <column name="primary_skill" type="varchar" />
+            <column name="created_datetime" type="timestamp" />
+            <column name="updated_datetime" type="timestamp" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-subject-table" author="zsolt.feher">
+        <createTable tableName="subject">
+            <column name="id" type="int" />
+            <column name="subject_name" type="varchar(50)" />
+            <column name="tutor" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-exam-result-table" author="zsolt.feher">
+        <createTable tableName="exam_result">
+            <column name="id" type="int" />
+            <column name="student_id" type="int" />
+            <column name="subject_id" type="int"/>
+            <column name="mark" type="boolean"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="add-primary-key-to-student-table" author="zsolt.feher">
+        <addPrimaryKey tableName="student" columnNames="id" />
+    </changeSet>
+
+    <changeSet id="add-primary-key-to-subject-table" author="zsolt.feher">
+        <addPrimaryKey tableName="subject" columnNames="id" />
+    </changeSet>
+
+    <changeSet id="add-primary-key-to-exam-result-table" author="zsolt.feher">
+        <addPrimaryKey tableName="exam_result" columnNames="id" />
+    </changeSet>
+
+    <changeSet id="add-student-surname-not-null-constraint" author="zsolt.feher">
+        <addNotNullConstraint tableName="student"
+                              columnName="surname" />
+    </changeSet>
+
+    <changeSet id="add-subject-subject-name-not-null-constraint" author="zsolt.feher">
+        <addNotNullConstraint tableName="subject"
+                              columnName="subject_name" />
+    </changeSet>
+
+    <changeSet id="add-exam-result-student-id-not-null-constraint" author="zsolt.feher">
+        <addNotNullConstraint tableName="exam_result"
+                              columnName="student_id" />
+    </changeSet>
+
+    <changeSet id="add-exam-result-subject-id-not-null-constraint" author="zsolt.feher">
+        <addNotNullConstraint tableName="exam_result"
+                              columnName="subject_id" />
+    </changeSet>
+
+    <changeSet id="add-exam-result-student-id-foreign-key-constraint" author="zsolt.feher">
+        <addForeignKeyConstraint baseColumnNames="student_id"
+                                 baseTableName="exam_result"
+                                 referencedColumnNames="id"
+                                 referencedTableName="student"
+                                 constraintName="fk_exam_result_student_id"
+                                 onDelete="CASCADE" />
+    </changeSet>
+
+    <changeSet id="add-exam-result-subject-id-foreign-key-constraint" author="zsolt.feher">
+        <addForeignKeyConstraint baseColumnNames="subject_id"
+                                 baseTableName="exam_result"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subject"
+                                 constraintName="fk_exam_result_subject_id"
+                                 onDelete="CASCADE" />
+    </changeSet>
+
+    <changeSet id="add-student-surname-index" author="zsolt.feher">
+        <createIndex indexName="idx_student_surname"
+                     tableName="student">
+            <column name="surname"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="add-subject-subject-name-index" author="zsolt.feher">
+        <createIndex indexName="idx_subject_subject_name"
+                     tableName="subject">
+            <column name="subject_name"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="add-exam-result-subject-id-index" author="zsolt.feher">
+        <createIndex indexName="idx_exam_result_subject_id"
+                     tableName="exam_result">
+            <column name="subject_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="add-exam-result-student-id-index" author="zsolt.feher">
+        <createIndex indexName="idx_exam_result_student_id"
+                     tableName="exam_result">
+            <column name="student_id"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

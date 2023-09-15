@@ -116,4 +116,29 @@
         </createIndex>
     </changeSet>
 
+    <changeSet id="create-created-datetime-trigger-function" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_fill_created_datetime_trigger_function.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="create-updated-datetime-trigger-function" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_fill_updated_datetime_trigger_function.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="create-created-datetime-insert-trigger" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_student_created_datetime_insert_trigger.sql"
+                 relativeToChangelogFile="true" />
+    </changeSet>
+
+    <changeSet id="create-updated-datetime-insert-update-trigger" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_student_updated_datetime_insert_update_trigger.sql"
+                 relativeToChangelogFile="true" />
+    </changeSet>
 </databaseChangeLog>

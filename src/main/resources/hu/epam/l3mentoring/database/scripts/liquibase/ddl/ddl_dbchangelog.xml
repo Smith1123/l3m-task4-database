@@ -186,4 +186,10 @@
                  path="sql/create_subjects_average_mark_function.sql"
                  relativeToChangelogFile="true" />
     </changeSet>
+
+    <changeSet id="create-get-red-zone-students-function" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_get_red_zone_students_function.sql"
+                 relativeToChangelogFile="true" />
+    </changeSet>
 </databaseChangeLog>

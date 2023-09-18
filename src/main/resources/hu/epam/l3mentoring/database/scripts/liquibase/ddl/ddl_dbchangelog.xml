@@ -168,4 +168,10 @@
                  path="sql/create_exam_result_insert_update_trigger.sql"
                  relativeToChangelogFile="true" />
     </changeSet>
+
+    <changeSet id="create-student-name-check-constraint" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/student_name_check_constraint.sql"
+                 relativeToChangelogFile="true" />
+    </changeSet>
 </databaseChangeLog>

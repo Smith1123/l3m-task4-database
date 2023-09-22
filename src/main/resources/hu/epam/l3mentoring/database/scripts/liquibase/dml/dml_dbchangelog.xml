@@ -8,4 +8,21 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
         http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet id="generate-students" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/generate_students.sql"
+                 relativeToChangelogFile="true" />
+    </changeSet>
+
+    <changeSet id="generate-subjects" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/generate_subjects.sql"
+                 relativeToChangelogFile="true" />
+    </changeSet>
+
+    <changeSet id="generate-exam-results" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/generate_exam_results.sql"
+                 relativeToChangelogFile="true" />
+    </changeSet>
 </databaseChangeLog>

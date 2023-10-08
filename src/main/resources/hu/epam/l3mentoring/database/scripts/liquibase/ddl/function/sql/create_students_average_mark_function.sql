@@ -10,3 +10,4 @@ RETURNS integer AS $average_mark$
       RETURN avarage_mark;
    END;
    $average_mark$ LANGUAGE plpgsql;
+/

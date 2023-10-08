@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <include file="trigger_function/trigger_function_changelog.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="create-created-datetime-insert-trigger" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_student_created_datetime_insert_trigger.sql"
+                 relativeToChangelogFile="true" />
+    </changeSet>
+
+    <changeSet id="create-updated-datetime-insert-update-trigger" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_student_updated_datetime_insert_update_trigger.sql"
+                 relativeToChangelogFile="true" />
+    </changeSet>
+
+    <changeSet id="create-exam-result-mark-insert-trigger" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_exam_result_insert_update_trigger.sql"
+                 relativeToChangelogFile="true" />
+    </changeSet>
+</databaseChangeLog>

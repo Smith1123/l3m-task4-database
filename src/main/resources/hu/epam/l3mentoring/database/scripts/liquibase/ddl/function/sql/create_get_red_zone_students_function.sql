@@ -6,3 +6,4 @@ SELECT s.* FROM student s WHERE s.id IN
 	  WHERE er.mark <= 3
    GROUP BY er.student_id HAVING COUNT(er.student_id) >= 2);
 $$ LANGUAGE sql;
+/

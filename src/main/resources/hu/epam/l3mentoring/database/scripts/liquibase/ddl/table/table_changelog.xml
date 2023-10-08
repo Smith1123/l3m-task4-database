@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet id="create-student-table" author="zsolt.feher">
+        <createTable tableName="student">
+            <column name="id" type="int" />
+            <column name="name" type="varchar(50)" />
+            <column name="surname" type="jsonb" />
+            <column name="date_of_birth" type="date" />
+            <column name="phone_number" type="varchar" />
+            <column name="primary_skill" type="varchar" />
+            <column name="created_datetime" type="timestamp" />
+            <column name="updated_datetime" type="timestamp" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-subject-table" author="zsolt.feher">
+        <createTable tableName="subject">
+            <column name="id" type="int" />
+            <column name="subject_name" type="jsonb" />
+            <column name="tutor" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-exam-result-table" author="zsolt.feher">
+        <createTable tableName="exam_result">
+            <column name="id" type="int" />
+            <column name="student_id" type="int" />
+            <column name="subject_id" type="int" />
+            <column name="mark" type="int(1)" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-student-progress-snapshot-table" author="zsolt.feher">
+        <createTable tableName="student_progress_snapshot">
+            <column name="id" type="int" autoIncrement="true" />
+            <column name="student_name" type="varchar(50)" />
+            <column name="student_surname" type="varchar(20)" />
+            <column name="subject_name" type="varchar(50)" />
+            <column name="mark" type="int(1)" />
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

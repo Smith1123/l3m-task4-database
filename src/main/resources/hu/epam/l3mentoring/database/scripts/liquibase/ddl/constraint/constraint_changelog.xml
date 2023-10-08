@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet id="add-primary-key-to-student-table" author="zsolt.feher">
+        <addPrimaryKey tableName="student" columnNames="id" />
+    </changeSet>
+
+    <changeSet id="add-primary-key-to-subject-table" author="zsolt.feher">
+        <addPrimaryKey tableName="subject" columnNames="id" />
+    </changeSet>
+
+    <changeSet id="add-primary-key-to-exam-result-table" author="zsolt.feher">
+        <addPrimaryKey tableName="exam_result" columnNames="id" />
+    </changeSet>
+
+    <changeSet id="add-student-surname-not-null-constraint" author="zsolt.feher">
+        <addNotNullConstraint tableName="student"
+                              columnName="surname" />
+    </changeSet>
+
+    <changeSet id="add-subject-subject-name-not-null-constraint" author="zsolt.feher">
+        <addNotNullConstraint tableName="subject"
+                              columnName="subject_name" />
+    </changeSet>
+
+    <changeSet id="add-exam-result-student-id-not-null-constraint" author="zsolt.feher">
+        <addNotNullConstraint tableName="exam_result"
+                              columnName="student_id" />
+    </changeSet>
+
+    <changeSet id="add-exam-result-subject-id-not-null-constraint" author="zsolt.feher">
+        <addNotNullConstraint tableName="exam_result"
+                              columnName="subject_id" />
+    </changeSet>
+
+    <changeSet id="add-exam-result-student-id-foreign-key-constraint" author="zsolt.feher">
+        <addForeignKeyConstraint baseColumnNames="student_id"
+                                 baseTableName="exam_result"
+                                 referencedColumnNames="id"
+                                 referencedTableName="student"
+                                 constraintName="fk_exam_result_student_id"
+                                 onDelete="CASCADE" />
+    </changeSet>
+
+    <changeSet id="add-exam-result-subject-id-foreign-key-constraint" author="zsolt.feher">
+        <addForeignKeyConstraint baseColumnNames="subject_id"
+                                 baseTableName="exam_result"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subject"
+                                 constraintName="fk_exam_result_subject_id"
+                                 onDelete="CASCADE" />
+    </changeSet>
+
+    <changeSet id="add-primary-key-to-student-progress-snapshot-table-table" author="zsolt.feher">
+        <addPrimaryKey tableName="student_progress_snapshot" columnNames="id" />
+    </changeSet>
+
+    <changeSet id="create-student-name-check-constraint" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/student_name_check_constraint.sql"
+                 relativeToChangelogFile="true" />
+    </changeSet>
+</databaseChangeLog>

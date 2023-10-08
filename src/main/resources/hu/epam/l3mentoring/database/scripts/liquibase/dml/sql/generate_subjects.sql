@@ -9,7 +9,7 @@ WITH RECURSIVE id_sequence AS (
     FROM id_sequence
 ), generated_data AS (
     SELECT i.id,
-           'Subject' || LPAD(CAST(i.id AS text), 3, '0') AS subject_name,
+           to_json('Subject' || LPAD(CAST(i.id AS text), 3, '0')) AS subject_name,
            'John Doe' || LPAD(CAST(i.id AS text), 3, '0') AS tutor
       FROM incremented_ids i
 )

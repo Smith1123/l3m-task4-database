@@ -10,7 +10,7 @@ WITH RECURSIVE id_sequence AS (
 ), generated_data AS (
     SELECT i.id,
            'John' || LPAD(CAST(i.id AS text), 5, '0') AS name,
-           'Doe' || LPAD(CAST(i.id AS text), 5, '0') AS surname,
+           to_json('Doe' || LPAD(CAST(i.id AS text), 5, '0')) AS surname,
            DATE '2001-01-01' + (i.id * INTERVAL '1 day') AS date_of_birth,
            '555-123-456' || LPAD(CAST(i.id AS text), 5, '0') AS phone_number,
            'Skill' || LPAD(CAST(i.id AS text), 3, '0') AS primary_skill

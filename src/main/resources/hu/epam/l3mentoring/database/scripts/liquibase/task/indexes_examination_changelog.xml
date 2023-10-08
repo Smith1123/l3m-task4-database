@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet id="create-plan-table" author="zsolt.feher">
+        <createTable tableName="plan">
+            <column name="id" type="int" />
+            <column name="procedure_name" type="varchar(100)" />
+            <column name="call_id" type="int" />
+            <column name="parameter_value" type="varchar(50)" />
+            <column name="query_plan" type="text" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-explain-analyze-student-name-exact-match-query-procedure" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_explain_analyze_student_name_exact_match_query_procedure.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="create-explain-analyze-student-surname-partial-match-query-procedure" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_explain_analyze_student_surname_partial_match_query_procedure.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="create-explain-analyze-student-phone-number-partial-match-query-procedure" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_explain_analyze_student_phone_number_partial_match_query_procedure.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="create-explain-analyze-student-with-marks-surname-partial-match-query-procedure"
+               author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_explain_analyze_student_with_marks_surname_partial_match_query_procedure.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="create-my-to-json-function" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_my_to_json_function.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="drop-idx-student-surname-index" author="zsolt.feher">
+        <dropIndex indexName="idx_student_surname"
+                   tableName="student"/>
+    </changeSet>
+
+    <changeSet id="drop-idx-subject-subject-name-index" author="zsolt.feher">
+        <dropIndex indexName="idx_subject_subject_name"
+                   tableName="subject"/>
+    </changeSet>
+
+    <changeSet id="drop-idx-exam-result-subject-id-index" author="zsolt.feher">
+        <dropIndex indexName="idx_exam_result_subject_id"
+                   tableName="exam_result"/>
+    </changeSet>
+
+    <changeSet id="drop-idx-exam-result-student-id-index" author="zsolt.feher">
+        <dropIndex indexName="idx_exam_result_student_id"
+                   tableName="exam_result"/>
+    </changeSet>
+
+    <changeSet id="analyze-queries-before-b-tree-index" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/analyze_queries.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="create-b-tree-indexes" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_b_tree_index.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="analyze-queries-after-b-tree-index" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/analyze_queries.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="drop-b-tree-indexes" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/drop_b_tree_index.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="analyze-queries-before-hash-index" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/analyze_queries.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="create-hash-indexes" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_hash_index.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="analyze-queries-after-hash-index" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/analyze_queries.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="drop-hash-indexes" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/drop_hash_index.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="analyze-queries-before-gin-index" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/analyze_queries.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="create-gin-indexes" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/create_gin_index.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="analyze-queries-after-gin-index" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/analyze_queries.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+    <changeSet id="drop-gin-indexes" author="zsolt.feher">
+        <sqlFile encoding="UTF-8"
+                 path="sql/drop_gin_index.sql"
+                 relativeToChangelogFile="true"
+                 endDelimiter="/" />
+    </changeSet>
+
+<!--    <changeSet id="analyze-queries-before-gist-index" author="zsolt.feher">-->
+<!--        <sqlFile encoding="UTF-8"-->
+<!--                 path="sql/analyze_queries.sql"-->
+<!--                 relativeToChangelogFile="true"-->
+<!--                 endDelimiter="/" />-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="create-gist-indexes" author="zsolt.feher">-->
+<!--        <sqlFile encoding="UTF-8"-->
+<!--                 path="sql/create_gist_index.sql"-->
+<!--                 relativeToChangelogFile="true"-->
+<!--                 endDelimiter="/" />-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="analyze-queries-after-gist-index" author="zsolt.feher">-->
+<!--        <sqlFile encoding="UTF-8"-->
+<!--                 path="sql/analyze_queries.sql"-->
+<!--                 relativeToChangelogFile="true"-->
+<!--                 endDelimiter="/" />-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="drop-gist-indexes" author="zsolt.feher">-->
+<!--        <sqlFile encoding="UTF-8"-->
+<!--                 path="sql/drop_gist_index.sql"-->
+<!--                 relativeToChangelogFile="true"-->
+<!--                 endDelimiter="/" />-->
+<!--    </changeSet>-->
+</databaseChangeLog>

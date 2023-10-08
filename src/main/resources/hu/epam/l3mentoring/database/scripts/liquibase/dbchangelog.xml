@@ -10,4 +10,5 @@
         http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
     <include file="ddl/ddl_dbchangelog.xml" relativeToChangelogFile="true" />
     <include file="dml/dml_dbchangelog.xml" relativeToChangelogFile="true" />
+    <include file="task/indexes_examination_changelog.xml" relativeToChangelogFile="true" />
 </databaseChangeLog>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet id="add-student-surname-index" author="zsolt.feher">
+        <createIndex indexName="idx_student_surname"
+                     tableName="student">
+            <column name="surname"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="add-subject-subject-name-index" author="zsolt.feher">
+        <createIndex indexName="idx_subject_subject_name"
+                     tableName="subject">
+            <column name="subject_name" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="add-exam-result-subject-id-index" author="zsolt.feher">
+        <createIndex indexName="idx_exam_result_subject_id"
+                     tableName="exam_result">
+            <column name="subject_id" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="add-exam-result-student-id-index" author="zsolt.feher">
+        <createIndex indexName="idx_exam_result_student_id"
+                     tableName="exam_result">
+            <column name="student_id" />
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>
